@@ -1,0 +1,46 @@
+syntax="proto3";
+
+package v1;
+
+service MicroService{
+    rpc CallService(ServiceRequest)returns (ServiceResponse);
+  }
+
+// Custom business logic response type here
+// will be passed via Service Response through grpc 
+// response path
+// Edit fields to hearts content
+message BusinessResponse{
+        string data =1;//example
+}
+
+// Request sent to the grpc server from any axternal client
+// Edit fields only to avoid integration failure
+// Edit fields to hearts content
+message ServiceRequest{
+        string request=1;// example - rename or use different structs as fields
+}
+
+// Returned by the server-
+// Template object. WARNING - changing this will require 
+// changing the corresponding endpoint and transport files.
+// Its Recommended to leave this as is unless you are confident.
+message ServiceResponse{
+        BusinessResponse info=1;
+        ServiceError error=2;
+}
+
+// Template object. WARNING - Leave alone if possible unless you are
+// prepared to edit multiple files to regain cohesion.
+message ServiceError{
+    string error=1;
+    int32 code =2;
+}
+
+// Run this in your command line to regenerate the protobufs - Make sure you are in your project root
+// or edit the paths in the command to match.
+// please note the output file location is `pkg/api/v1`
+// Regarding the `third_party` folder and command below - delete if you don't need it nor know its use.
+//
+//
+//      protoc --proto_path=api/proto/v1 --proto_path=third_party --go_out=plugins=grpc:pkg/api/v1 micro_service.proto

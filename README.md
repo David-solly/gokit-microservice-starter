@@ -1,5 +1,5 @@
 # gokit-microservice-starter
-A REST to gRPC client server starter for a single rpc method. MVP boiler-plate code. includes Docker build file and pulls a minimal alpine build without a shell within the Docker container.
+A REST to gRPC client server starter for a single rpc method. Minimal boiler-plate code based, structured using the popular starter-kit `https://github.com/golang-standards/project-layout`. Includes Docker build file and pulls a minimal alpine build without a shell within the Docker container.
 
 This was an attempt to make life slightly easier for micro service development using go-kit and gGPC server-client ipc. Unfortunately the only options for using go-kit were to use generators or dig into the code base.
 I hope this will help lighten the load somewhat for those looking to start using go-kit without being put-off golang because of the shear number of lines of code required for a simple function.
@@ -14,9 +14,10 @@ This microservice can be edited by changing just one file and implementing your 
   - TDD is a great practice and advisable in genreal but especially when dealing with go-kit or any gRPC communication, so it is strongly encouraged especially here so be sure to edit the corresponding test file
 
 # Running the Code
-In order to run the code, both server and client are needed though can be run independantly
+To run the code, both server and client are needed though can be run independently
 the server code and run command can be found at 
   - ```cmd/server/main.go``` - runs on port 8080
+  - eg from the working directory containing the server's `main.go` file. To run on port 8080 and bind to localhost ```go run . -advertise.addr "127.0.0.1" -advertise.port "8080"```
 
 and the client - naive basic implementation of a REST endpoint interfacing with a gRPC server
   - ```cmd/client/main.go``` - runs on port 8082

@@ -4,7 +4,6 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	ilog "log"
 	"net"
 	"os"
 	"os/signal"
@@ -36,14 +35,14 @@ func main() {
 	flag.Parse()
 
 	// Blank port will default to run the service on 8080
-	// If not containerized - check port conflict
+	// If not containerized - check for port conflict
 	//
 	if advertisePort == nil {
 		port := "8080"
 		advertisePort = &port
 	}
 
-	// For local Testing or other server endpoints and port not docker specific
+	// For local Testing or other server endpoints and port - not docker specific
 	// here is an example of how that would work
 	// var (
 	// 	gRPCAddr = flag.String("grpc", "127.0.0.1:"+"8082",
@@ -91,7 +90,6 @@ func main() {
 	error := <-errChan
 	logger.Log("err", error)
 	panic(error)
-	ilog.Fatal(error)
 
 }
 

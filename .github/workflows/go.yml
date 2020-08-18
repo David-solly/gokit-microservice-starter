@@ -29,10 +29,10 @@ jobs:
           fi
 
       - name: Build
-        run: go build -v .
+        run: go build -v ./cmd/server/
 
-      - name: show dir
-        run: ls
+      - name: Build
+        run: go build -v ./cmd/client/
 
       - name: Test
-        run: go test -v .
+        run: go test -v ./pkg/api/v1/service/

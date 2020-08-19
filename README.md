@@ -1,5 +1,5 @@
 # gokit-microservice-starter
-A REST to gRPC client server starter for a single rpc method. Minimal boiler-plate code based, structured using the popular [starter-kit][https://github.com/golang-standards/project-layout].
+A REST to gRPC client server starter for a single rpc method. Minimal boiler-plate code based, structured using the popular [starter-kit](https://github.com/golang-standards/project-layout).
 ### Container Size
 This starter kit includes a Docker multi-stage build file for the server and pulls a minimal alpine build without a shell to run within the Docker container. The resulting container is tiny and fully deployable. Your docker environment will cache the larger stages though so you may easily get docker bloat of a few hundred MB while building this image.
 ### debugging
